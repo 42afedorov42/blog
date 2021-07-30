@@ -26,6 +26,5 @@ http://localhost:8000/redoc/
 
 ### Django administration
 http://localhost:8000/admin/  
-Login and password:  
-<pre><code>admin</code></pre>
-
+Create superuser 
+<pre><code>docker exec -it myblog_web_1 python manage.py createsuperuser</code></pre>
