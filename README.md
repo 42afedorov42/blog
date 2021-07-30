@@ -5,6 +5,17 @@
 - Получение всех комментариев к статье вплоть до 3 уровня вложенности.
 - Получение всех вложенных комментариев для комментария 3 уровня.
 - По ответу API комментариев можно воссоздать древовидную структуру.
+
+### Install docker
+<pre><code>
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+sudo apt-cache policy docker-ce
+sudo apt install docker-ce
+</code></pre>
  
 ### Install Docker Compose  
 for linux 
