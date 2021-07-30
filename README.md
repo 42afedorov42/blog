@@ -13,7 +13,6 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update
-sudo apt-cache policy docker-ce
 sudo apt install docker-ce
 </code></pre>
  
@@ -27,7 +26,7 @@ for other os: https://docs.docker.com/compose/install/
 <p>Сredetionals in the .env file.
 If you have another base in postgres - change them.<br>
 PostgreSQL with postgres database is used by default.</p>  
-<pre><code> sudo docker-compose up</code></pre>
+<pre><code>sudo docker-compose up</code></pre>
 
 ### Blog API
 http://localhost:8000/api/
