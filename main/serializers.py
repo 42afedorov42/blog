@@ -24,38 +24,12 @@ class NestedCommentL3Serializer(serializers.ModelSerializer):
         fields = ['level', 'name', 'text', 'children']
 
 
-class CommentSerializer(serializers.ModelSerializer):
-    """Comments list"""
-    children = RecursiveSerializer(many=True)
-    class Meta:
-        list_serializer_class = FilterCommentSerializer
-        model = Comment
-        fields = ['id', 'name', 'text', 'children']
-
-
-class CreateCommentSerializer(serializers.ModelSerializer):
-    """Adding comment"""
-    class Meta:
-        model = Comment
-        fields = ['article_id', 'parent', 'name', 'text']
-
-
-class ArticleListSerializer(serializers.ModelSerializer):
-    """Articles list"""
-    comment = CommentSerializer(many=True)
-    class Meta:
-        model = Article
-        fields = ['id', 'title', 'content', 'comment']
-
-
 class ArticleCommentsSerializer(serializers.ModelSerializer):
     """Article comments list"""
     #children = RecursiveSerializer(many=True)
     class Meta:
         model = Comment
         fields = ['level', 'name', 'text', 'children']
-
-
 
 
 class ArticleCreateSerializer(serializers.ModelSerializer):
