@@ -4,6 +4,7 @@ from .models import Article, Comment
 
 class FilterCommentSerializer(serializers.ListSerializer):
     """Comments filter. Anly parents"""
+    
     def to_representation(self, data):
         data = data.filter(parent=None)
         return super().to_representation(data)
@@ -11,6 +12,7 @@ class FilterCommentSerializer(serializers.ListSerializer):
 
 class RecursiveSerializer(serializers.Serializer):
     """Recursive comments list"""
+    
     def to_representation(self, value):
         serializer = self.parent.parent.__class__(value, context=self.context)
         return serializer.data
@@ -19,6 +21,7 @@ class RecursiveSerializer(serializers.Serializer):
 class NestedCommentL3Serializer(serializers.ModelSerializer):
     """List of nested comments level 3"""
     children = RecursiveSerializer(many=True)
+    
     class Meta:
         model = Comment
         fields = ['level', 'name', 'text', 'children']
@@ -26,7 +29,7 @@ class NestedCommentL3Serializer(serializers.ModelSerializer):
 
 class ArticleCommentsSerializer(serializers.ModelSerializer):
     """Article comments list"""
-    #children = RecursiveSerializer(many=True)
+    
     class Meta:
         model = Comment
         fields = ['level', 'name', 'text', 'children']
